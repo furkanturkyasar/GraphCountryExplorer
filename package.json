@@ -4,10 +4,15 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.9.4",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }
