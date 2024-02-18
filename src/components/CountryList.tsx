@@ -23,6 +23,10 @@ const CountryList: React.FC<CountryListProps> = ({ groupedCountries }) => {
   ];
 
   useEffect(() => {
+    setCurrentPage({});
+  }, [groupedCountries]);
+
+  useEffect(() => {
     const autoSelectItem = () => {
       Object.entries(groupedCountries).forEach(([groupName, countries]) => {
        
@@ -90,15 +94,14 @@ const CountryList: React.FC<CountryListProps> = ({ groupedCountries }) => {
         const paginatedCountries = countries.slice((page - 1) * itemsPerPage, page * itemsPerPage);
      
         return (
-          <div className='rounded-lg p-4' key={groupName}>
-            
-            <h3 className="font-bold">{countries.length > 0 ? groupName : EmptyState()}</h3>
+          <div className='rounded-lg overflow-hidden shadow-lg bg-[#FFF] dark:bg-gray-800 my-4 p-4 hover:border-2 hover:border-blue-500 dark:hover:border-gray-600 transition-all duration-100 ease-in-out' key={groupName}>
+            <h3 className="font-bold p-2">{countries.length > 0 ? groupName : EmptyState()}</h3>
             <ul className="list-none hover:list-decimal pl-5 space-y-2">
               {paginatedCountries.map((country) => (
                 <li
                   key={country.code}
                   onClick={() => handleSelectCountry(country.code)}
-                  className={`cursor-pointer ${country.code === selectedCountryCode ? getBackgroundColor(country.code) : 'bg-transparent'} transition-colors duration-150`}
+                  className={`cursor-pointer ${country.code === selectedCountryCode ? getBackgroundColor(country.code) + " font-bold text-gray-600" : 'bg-transparent'} transition-colors duration-150 rounded-lg p-2`}
                 >
                   {country.name}
                 </li>
@@ -109,7 +112,7 @@ const CountryList: React.FC<CountryListProps> = ({ groupedCountries }) => {
                 <button 
                   disabled={page <= 1}
                   onClick={() => handlePageChange(groupName, 'prev')}
-                  className="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 disabled:bg-blue-300 disabled:cursor-not-allowed transition ease-in-out duration-150"
+                  className="w-30 px-4 py-2 text-sm font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 disabled:bg-blue-300 disabled:cursor-not-allowed transition ease-in-out duration-150"
                 >
                   Previous
                 </button>
@@ -117,7 +120,7 @@ const CountryList: React.FC<CountryListProps> = ({ groupedCountries }) => {
                 <button 
                   disabled={page >= totalPages}
                   onClick={() => handlePageChange(groupName, 'next')}
-                  className="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 disabled:bg-blue-300 disabled:cursor-not-allowed transition ease-in-out duration-150"
+                  className="w-30 px-4 py-2 text-sm font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 disabled:bg-blue-300 disabled:cursor-not-allowed transition ease-in-out duration-150"
                 >
                   Next
                 </button>
