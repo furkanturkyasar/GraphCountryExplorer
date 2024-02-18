@@ -36,16 +36,16 @@ npm start
 ```
 This will launch the Country Explorer application on http://localhost:3000.
 
-##Usage
+## Usage
 
 To use Country Explorer, simply start typing in the filter input to search for countries or specify a grouping attribute (e.g., search:Germany group:continent). The application will dynamically update the displayed countries based on the input criteria.
 
 Toggle the dark mode switch located at the top right corner of the application to switch between light and dark themes.
 
-##Contributing
+## Contributing
 
 Contributions to Country Explorer are welcome! If you have suggestions for improvements or encounter any issues, please feel free to submit an issue or pull request.
 
-##License
+## License
 
 Country Explorer is open-source software licensed under the MIT license.
